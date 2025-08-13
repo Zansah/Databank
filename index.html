@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Databank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <div class="toolbar">
+    <button class="toolbar-button" id="exportButton">Export</button>
+    <input type="file" id="importFile" style="display:none" accept=".json"/>
+    <button class="toolbar-button" id="importButton">Import</button>
+  </div>
+
+  
+  <div class="main-container">
+    <div class="search-wrapper">
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search..." id="searchInput" autocomplete="off"/>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+      <div class="secondary-box">
+        <button class="secondary-button" id="pagesButton">Pages</button>
+        <button class="secondary-button" id="darkModeToggle">Toggle</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal" id="pagesModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Add / Edit Page</h3>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="editSearch" class="form-label">Edit Here</label>
+        <input type="text" id="editSearch" class="form-input" placeholder="Type exact title to edit..."/>
+      </div>
+
+      
+      <form id="pageForm">
+        <div class="form-group">
+          <label for="title" class="form-label">Add Here*</label>
+          <input type="text" id="title" class="form-input" required/>
+        </div>
+        <div class="form-group">
+          <label for="url" class="form-label">URL</label>
+          <input type="url" id="url" class="form-input" placeholder="Optional"/>
+        </div>
+        <div class="form-group">
+          <label for="description" class="form-label">Description</label>
+          <textarea id="description" class="form-textarea"></textarea>
+        </div>
+        <div class="form-group">
+          <label><input type="checkbox" id="isPersonal"> This is a personal project / note</label>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Page</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <div class="success-message" id="successMessage"></div>
+  <div class="error-message" id="errorMessage"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
